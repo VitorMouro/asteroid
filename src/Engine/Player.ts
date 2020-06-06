@@ -3,10 +3,12 @@ import Entity from "./Entity.js"
 export default class Player extends Entity {
 
     size: { x: number, y: number }
+    speed: number = 0.6
 
     constructor() {
         super();
         this.size = { x: 50, y: 50 }
+
     }
 
     draw(ctx: CanvasRenderingContext2D) {
@@ -15,7 +17,17 @@ export default class Player extends Entity {
     }
 
     update(dt: number) {
-
+        if(window.Input.is_key_pressed("UP")){
+            this.position.y -= 1 * dt
+        }
+        if(window.Input.is_key_pressed("DOWN")){
+            this.position.y += 1 * dt
+        }
+        if(window.Input.is_key_pressed("RIGHT")){
+            this.position.x += 1 * dt
+        }
+        if(window.Input.is_key_pressed("LEFT")){
+            this.position.x -= 1 * dt
+        }
     }
-
 }

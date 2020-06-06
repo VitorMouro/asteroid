@@ -4,14 +4,14 @@ import Input from "./Engine/Input.js";
 declare global {
     interface Window {
         Input: Input
+        Game: Game
     }
 }
 
 window.Input = new Input
 
 const canvas: HTMLCanvasElement = document.getElementById("canvas") as HTMLCanvasElement;
-
 canvas.height = 800;
 canvas.width = 800;
 
-const gameInstance = new Game(canvas); 
+window.Game = new Game(canvas); 

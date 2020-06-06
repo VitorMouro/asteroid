@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     background-color: rgb(60, 60, 60);
     overflow: hidden;
+    text-align: center;
 }
 
 canvas {

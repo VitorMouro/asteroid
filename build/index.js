@@ -4,4 +4,4 @@ window.Input = new Input;
 const canvas = document.getElementById("canvas");
 canvas.height = 800;
 canvas.width = 800;
-const gameInstance = new Game(canvas);
+window.Game = new Game(canvas);

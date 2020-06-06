@@ -1,23 +1,40 @@
-enum Key {
-    Left = 37,
-    Up = 38,
-    Right = 39,
-    Down = 40
+let Keys: { [key: string]: number; } = {
+    // Adicione pares KEY => KEYCODE como input
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39,
+    DOWN: 40
 }
 
 export default class Input {
 
-    constructor(){
-        document.addEventListener("keydown", this.handleKeyDown)
+    pressed: { [key: string]: boolean; } = {}
+
+    constructor() {
+        document.addEventListener("keydown", this.handleKeyDown.bind(this))
+        document.addEventListener("keyup", this.handleKeyUp.bind(this))
+        for (let key in Keys){
+            this.pressed[key] = false;
+        }
     }
 
-    is_key_pressed(key: string){
-
+    is_key_pressed(key: string) {
+        return this.pressed[key]
     }
 
-    handleKeyDown(event: KeyboardEvent){
-        console.log(event.keyCode)
-
+    handleKeyDown(event: KeyboardEvent) {
+        for (let key in Keys){
+            if(event.keyCode == Keys[key]){
+                this.pressed[key] = true;
+            }
+        }
     }
 
+    handleKeyUp(event: KeyboardEvent){
+        for (let key in Keys){
+            if(event.keyCode == Keys[key]){
+                this.pressed[key] = false;
+            }
+        }
+    }
 }
