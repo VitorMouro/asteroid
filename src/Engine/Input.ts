@@ -1,14 +1,16 @@
+import Vector2 from "./Vector2.js"
+
 let Keys: { [key: string]: number; } = {
-    // Adicione pares KEY => KEYCODE como input
     LEFT: 37,
     UP: 38,
     RIGHT: 39,
     DOWN: 40
+    // Adicione pares KEY => KEYCODE abaixo como input
 }
 
 export default class Input {
 
-    pressed: { [key: string]: boolean; } = {}
+    private pressed: { [key: string]: boolean; } = {}
 
     constructor() {
         document.addEventListener("keydown", this.handleKeyDown.bind(this))
@@ -18,11 +20,11 @@ export default class Input {
         }
     }
 
-    is_key_pressed(key: string) {
+    public is_key_pressed(key: string) {
         return this.pressed[key]
     }
 
-    handleKeyDown(event: KeyboardEvent) {
+    private handleKeyDown(event: KeyboardEvent) {
         for (let key in Keys){
             if(event.keyCode == Keys[key]){
                 this.pressed[key] = true;
@@ -30,7 +32,7 @@ export default class Input {
         }
     }
 
-    handleKeyUp(event: KeyboardEvent){
+    private handleKeyUp(event: KeyboardEvent){
         for (let key in Keys){
             if(event.keyCode == Keys[key]){
                 this.pressed[key] = false;

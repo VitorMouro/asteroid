@@ -1,9 +1,11 @@
+import Vector2 from "./Vector2.js"
+
 export default abstract class Entity {
 
-    position: {x: number, y: number}
+    position: Vector2
 
     constructor(){
-        this.position = {x: 0, y: 0}
+        this.position = new Vector2(0, 0)
     }
 
     abstract update(delta: number) : void;

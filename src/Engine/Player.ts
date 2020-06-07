@@ -1,14 +1,16 @@
 import Entity from "./Entity.js"
+import Vector2 from "./Vector2.js";
 
 export default class Player extends Entity {
 
-    size: { x: number, y: number }
+    size: Vector2
     speed: number = 0.6
+    direction: Vector2
 
     constructor() {
         super();
-        this.size = { x: 50, y: 50 }
-
+        this.size = new Vector2(50, 50);
+        this.direction = new Vector2(0, 0)
     }
 
     draw(ctx: CanvasRenderingContext2D) {
@@ -17,17 +19,24 @@ export default class Player extends Entity {
     }
 
     update(dt: number) {
+        this.updateDirection()
+        this.position.add(this.direction.multiplyScalar(this.speed * dt))
+    }
+
+    updateDirection(){
+        this.direction.reset();
         if(window.Input.is_key_pressed("UP")){
-            this.position.y -= 1 * dt
+            this.direction.y -= 1;
         }
         if(window.Input.is_key_pressed("DOWN")){
-            this.position.y += 1 * dt
+            this.direction.y += 1;
         }
         if(window.Input.is_key_pressed("RIGHT")){
-            this.position.x += 1 * dt
+            this.direction.x += 1;
         }
         if(window.Input.is_key_pressed("LEFT")){
-            this.position.x -= 1 * dt
+            this.direction.x -= 1;
         }
+        this.direction.normalize();
     }
 }
