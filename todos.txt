@@ -1,1 +1,1 @@
--> Criar um singleton global de Input para acessar o status das teclas de qualquer lugar
+-> Corrigir movimento direcional do Player
