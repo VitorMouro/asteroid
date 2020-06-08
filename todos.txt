@@ -1,1 +1,1 @@
--> Corrigir movimento direcional do Player
+-> Add enercia to Player movement

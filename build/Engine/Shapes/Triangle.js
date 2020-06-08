@@ -1,23 +1,31 @@
 import Vector2 from "../Types/Vector2.js";
-export default class Rect {
+export default class Triangle {
     constructor(x, y, w, h, r, color) {
+        this.p1 = new Vector2(0, 0);
+        this.p2 = new Vector2(0, 0);
+        this.p3 = new Vector2(0, 0);
         this.position = new Vector2(x, y);
-        this.size = new Vector2(w, h);
         this.rotation = r || 0;
         this.color = color;
-        this.p1 = new Vector2(this.position.x - this.size.x / 2, this.position.y - this.size.y / 2);
-        this.p2 = new Vector2(this.position.x + this.size.x / 2, this.position.y - this.size.y / 2);
-        this.p3 = new Vector2(this.position.x + this.size.x / 2, this.position.y + this.size.y / 2);
-        this.p4 = new Vector2(this.position.x - this.size.x / 2, this.position.y + this.size.y / 2);
-        this.fix_points();
+        this.size = new Vector2(w, h);
     }
     draw(ctx) {
+        this.p1 = new Vector2(this.position.x + this.size.y / 2, this.position.y);
+        this.p2 = new Vector2(this.position.x - this.size.y / 2, this.position.y - this.size.x / 2);
+        this.p3 = new Vector2(this.position.x - this.size.y / 2, this.position.y + this.size.x / 2);
+        this.fix_points();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "red";
+        ctx.beginPath();
+        ctx.moveTo(this.position.x, this.position.y);
+        ctx.lineTo(this.position.x + Math.cos(this.rotation * Math.PI / 180) * 50, this.position.y + Math.sin(this.rotation * Math.PI / 180) * 50);
+        ctx.closePath();
+        ctx.stroke();
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.moveTo(this.p1.x, this.p1.y);
         ctx.lineTo(this.p2.x, this.p2.y);
         ctx.lineTo(this.p3.x, this.p3.y);
-        ctx.lineTo(this.p4.x, this.p4.y);
         ctx.closePath();
         ctx.fill();
     }
@@ -25,7 +33,6 @@ export default class Rect {
         this.p1 = this.rotate_point(this.p1, this.position, this.rotation);
         this.p2 = this.rotate_point(this.p2, this.position, this.rotation);
         this.p3 = this.rotate_point(this.p3, this.position, this.rotation);
-        this.p4 = this.rotate_point(this.p4, this.position, this.rotation);
     }
     rotate_point(p, origin, angle) {
         angle = angle * Math.PI / 180.0;
