@@ -1,6 +1,8 @@
 import Vector2 from "../Types/Vector2.js";
-export default class Rect {
+import Shape from "./Shape.js";
+export default class Rect extends Shape {
     constructor(x, y, w, h, r, color) {
+        super();
         this.position = new Vector2(x, y);
         this.size = new Vector2(w, h);
         this.rotation = r || 0;

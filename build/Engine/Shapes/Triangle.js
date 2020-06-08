@@ -1,6 +1,8 @@
 import Vector2 from "../Types/Vector2.js";
-export default class Triangle {
+import Shape from "./Shape.js";
+export default class Triangle extends Shape {
     constructor(x, y, w, h, r, color) {
+        super();
         this.p1 = new Vector2(0, 0);
         this.p2 = new Vector2(0, 0);
         this.p3 = new Vector2(0, 0);

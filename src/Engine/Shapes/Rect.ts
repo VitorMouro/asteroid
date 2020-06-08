@@ -1,11 +1,9 @@
 import Vector2 from "../Types/Vector2.js";
+import Shape from "./Shape.js";
 
-export default class Rect {
+export default class Rect extends Shape{
 
     size: Vector2
-    position: Vector2
-    rotation: number
-    color: string
 
     private p1: Vector2
     private p2: Vector2
@@ -13,6 +11,7 @@ export default class Rect {
     private p4: Vector2
 
     constructor(x: number, y: number, w: number, h: number, r: number, color: string) {
+        super();
         this.position = new Vector2(x, y);
         this.size = new Vector2(w, h);
         this.rotation = r || 0;

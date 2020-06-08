@@ -1,10 +1,8 @@
 import Vector2 from "../Types/Vector2.js"
+import Shape from "./Shape.js"
 
-export default class Triangle {
+export default class Triangle extends Shape{
 
-    position: Vector2
-    rotation: number
-    color: string
     size: Vector2
 
     private p1: Vector2 = new Vector2(0, 0)
@@ -12,6 +10,7 @@ export default class Triangle {
     private p3: Vector2 = new Vector2(0, 0)
 
     constructor(x: number, y: number, w: number, h: number, r: number, color: string) {
+        super();
         this.position = new Vector2(x, y);
         this.rotation = r || 0;
         this.color = color;
