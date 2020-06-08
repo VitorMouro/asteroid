@@ -1,42 +1,43 @@
 import Entity from "./Entity.js"
-import Vector2 from "./Vector2.js";
+import Vector2 from "./Types/Vector2.js";
+import Rect from "./Shapes/Rect.js";
 
 export default class Player extends Entity {
 
-    size: Vector2
-    speed: number = 0.6
-    direction: Vector2
+    size: Vector2 = new Vector2(50, 50);
+    speed: number = 0.2
+    direction: number = 0
+    color: string = "Red"
 
     constructor() {
         super();
-        this.size = new Vector2(50, 50);
-        this.direction = new Vector2(0, 0)
     }
 
     draw(ctx: CanvasRenderingContext2D) {
-        ctx.fillStyle = "rgb(200, 0, 0)"
-        ctx.fillRect(this.position.x, this.position.y, this.size.x, this.size.y);
+        let rect = new Rect(this.position.x, this.position.y, this.size.x, this.size.y, this.rotation, this.color);
+        rect.draw(ctx);
     }
 
     update(dt: number) {
         this.updateDirection()
-        this.position.add(this.direction.multiplyScalar(this.speed * dt))
+        this.position.x += this.direction * Math.cos(this.rotation) * this.speed * dt;  
+        this.position.y += this.direction * Math.sin(this.rotation) * this.speed * dt;  
+        console.log(this.rotation)
     }
 
     updateDirection(){
-        this.direction.reset();
+        this.direction = 0
         if(window.Input.is_key_pressed("UP")){
-            this.direction.y -= 1;
+            this.direction -= 1;
         }
         if(window.Input.is_key_pressed("DOWN")){
-            this.direction.y += 1;
+            this.direction += 1;
         }
         if(window.Input.is_key_pressed("RIGHT")){
-            this.direction.x += 1;
+            this.rotation += 4;
         }
         if(window.Input.is_key_pressed("LEFT")){
-            this.direction.x -= 1;
+            this.rotation -= 4;
         }
-        this.direction.normalize();
     }
 }

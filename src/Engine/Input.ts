@@ -1,5 +1,3 @@
-import Vector2 from "./Vector2.js"
-
 let Keys: { [key: string]: number; } = {
     LEFT: 37,
     UP: 38,
