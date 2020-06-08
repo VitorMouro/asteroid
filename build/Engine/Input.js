@@ -5,7 +5,7 @@ let Keys = {
     DOWN: 40
     // Adicione pares KEY => KEYCODE abaixo como input
 };
-export default class Input {
+class InputSingleton {
     constructor() {
         this.pressed = {};
         document.addEventListener("keydown", this.handleKeyDown.bind(this));
@@ -31,4 +31,10 @@ export default class Input {
             }
         }
     }
+    static get Instance() {
+        // Do you need arguments? Make it a regular static method instead.
+        return this._instance || (this._instance = new this());
+    }
 }
+const Input = InputSingleton.Instance;
+export default Input;

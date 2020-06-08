@@ -6,11 +6,12 @@ let Keys: { [key: string]: number; } = {
     // Adicione pares KEY => KEYCODE abaixo como input
 }
 
-export default class Input {
+class InputSingleton {
 
     private pressed: { [key: string]: boolean; } = {}
+    private static _instance: InputSingleton;
 
-    constructor() {
+    private constructor() {
         document.addEventListener("keydown", this.handleKeyDown.bind(this))
         document.addEventListener("keyup", this.handleKeyUp.bind(this))
         for (let key in Keys){
@@ -37,4 +38,13 @@ export default class Input {
             }
         }
     }
+
+    public static get Instance()
+    {
+        // Do you need arguments? Make it a regular static method instead.
+        return this._instance || (this._instance = new this());
+    }
 }
+
+const Input = InputSingleton.Instance;
+export default Input;

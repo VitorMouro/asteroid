@@ -1,6 +1,7 @@
 import Entity from "./Entity.js"
 import Vector2 from "./Types/Vector2.js";
 import Rect from "./Shapes/Rect.js";
+import Input from "./Input.js"
 
 export default class Player extends Entity {
 
@@ -27,16 +28,16 @@ export default class Player extends Entity {
 
     updateDirection(){
         this.direction = 0
-        if(window.Input.is_key_pressed("UP")){
+        if(Input.is_key_pressed("UP")){
             this.direction -= 1;
         }
-        if(window.Input.is_key_pressed("DOWN")){
+        if(Input.is_key_pressed("DOWN")){
             this.direction += 1;
         }
-        if(window.Input.is_key_pressed("RIGHT")){
+        if(Input.is_key_pressed("RIGHT")){
             this.rotation += 4;
         }
-        if(window.Input.is_key_pressed("LEFT")){
+        if(Input.is_key_pressed("LEFT")){
             this.rotation -= 4;
         }
     }
