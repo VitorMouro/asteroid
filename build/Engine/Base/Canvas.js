@@ -11,6 +11,9 @@ class CanvasSingleton {
     static get Instance() {
         return this._instance || (this._instance = new this());
     }
+    get Context() {
+        return this.ctx;
+    }
 }
 const Canvas = CanvasSingleton.Instance;
 export default Canvas;

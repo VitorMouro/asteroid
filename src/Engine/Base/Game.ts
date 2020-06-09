@@ -2,6 +2,7 @@ import Player from "../Objects/Player.js";
 import Entity from "./Entity.js";
 import FPS from "../Objects/FPS.js";
 import Background from "../Objects/Background.js";
+import Canvas from "./Canvas.js";
 
 export default class Game {
 
@@ -10,7 +11,7 @@ export default class Game {
     lastTime: number = 0
 
     constructor(){
-        this.ctx = window.canvas.getContext("2d") as CanvasRenderingContext2D;
+        this.ctx = Canvas.Context;
 
         this.entities.push(new Background);
         this.entities.push(new Player);
@@ -41,7 +42,7 @@ export default class Game {
     }
 
     clear(){ 
-        this.ctx.clearRect(0, 0, window.canvas.width, window.canvas.height);
+        this.ctx.clearRect(0, 0, Canvas.width, Canvas.height);
     }
 
 }

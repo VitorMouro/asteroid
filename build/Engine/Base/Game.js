@@ -1,11 +1,12 @@
 import Player from "../Objects/Player.js";
 import FPS from "../Objects/FPS.js";
 import Background from "../Objects/Background.js";
+import Canvas from "./Canvas.js";
 export default class Game {
     constructor() {
         this.entities = [];
         this.lastTime = 0;
-        this.ctx = window.canvas.getContext("2d");
+        this.ctx = Canvas.Context;
         this.entities.push(new Background);
         this.entities.push(new Player);
         this.entities.push(new FPS);
@@ -30,6 +31,6 @@ export default class Game {
         });
     }
     clear() {
-        this.ctx.clearRect(0, 0, window.canvas.width, window.canvas.height);
+        this.ctx.clearRect(0, 0, Canvas.width, Canvas.height);
     }
 }

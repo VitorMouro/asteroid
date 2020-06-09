@@ -3,12 +3,12 @@ export default class Vector2 {
         this.x = x;
         this.y = y;
     }
-    set(vector) {
+    setVector(vector) {
         this.x = vector.x;
         this.y = vector.y;
         return this;
     }
-    setValues(x, y) {
+    set(x, y) {
         this.x = x;
         this.y = y;
         return this;
@@ -82,7 +82,7 @@ export default class Vector2 {
     rotate(angle) {
         const cos = Math.cos(angle);
         const sin = Math.sin(angle);
-        return this.setValues(this.x * cos - this.y * sin, this.x * sin + this.y * cos);
+        return this.set(this.x * cos - this.y * sin, this.x * sin + this.y * cos);
     }
     rotateBy(angle) {
         return this.rotate(this.angle() + angle);
@@ -103,7 +103,7 @@ export default class Vector2 {
         return Math.sqrt((vector.x - this.x) * (vector.x - this.x) + (vector.y - this.y) * (vector.y - this.y));
     }
     invert() {
-        return this.setValues(-this.x, -this.y);
+        return this.set(-this.x, -this.y);
     }
     dot(vector) {
         return this.x * vector.x + this.y * vector.y;
@@ -121,7 +121,7 @@ export default class Vector2 {
     }
     projectOnto(vector) {
         const coeff = (this.x * vector.x + this.y * vector.y) / (vector.x * vector.x + vector.y * vector.y);
-        return this.setValues(coeff * vector.x, coeff * vector.y);
+        return this.set(coeff * vector.x, coeff * vector.y);
     }
     round() {
         this.x = Math.round(this.x);

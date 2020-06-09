@@ -2,6 +2,7 @@ import Entity from "../Base/Entity.js"
 import Vector2 from "../Types/Vector2.js";
 import Input from "../Base/Input.js"
 import Triangle from "../Shapes/Triangle.js";
+import Canvas from "../Base/Canvas.js";
 
 export default class Player extends Entity {
 
@@ -16,7 +17,7 @@ export default class Player extends Entity {
 
     constructor() {
         super();
-        this.position = new Vector2(50, 50)
+        this.position.set(100, 100);
         this.shape = new Triangle(this.position.x, this.position.y, this.size.x, this.size.y, this.rotation, this.color)
         this.acceleration = new Vector2(0, 0)
         this.velocity = new Vector2(0, 0)
@@ -37,12 +38,12 @@ export default class Player extends Entity {
 
     update(dt: number) {
         if (this.position.y < 0)
-            this.position.y = window.canvas.height;
-        if (this.position.y > window.canvas.height)
+            this.position.y = Canvas.height;
+        if (this.position.y > Canvas.height)
             this.position.y = 0;
         if (this.position.x < 0)
-            this.position.x = window.canvas.width;
-        if (this.position.x > window.canvas.width)
+            this.position.x = Canvas.width;
+        if (this.position.x > Canvas.width)
             this.position.x = 0;
 
         if (Input.is_key_pressed("RIGHT")) {
@@ -55,7 +56,7 @@ export default class Player extends Entity {
             this.acceleration.x = Math.cos(this.rotation * Math.PI / 180) * this.thrust * dt / 1000;
             this.acceleration.y = Math.sin(this.rotation * Math.PI / 180) * this.thrust * dt / 1000;
         } else {
-            this.acceleration.reset();
+            this.acceleration.set(0, 0);
         }
 
         this.velocity.add(this.acceleration)

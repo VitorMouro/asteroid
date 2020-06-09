@@ -3,7 +3,7 @@ class CanvasSingleton {
     private static _instance: CanvasSingleton;
     public width: number = 800
     public height: number = 800
-    public ctx: CanvasRenderingContext2D
+    private ctx: CanvasRenderingContext2D
 
     private constructor() {
         const canvas: HTMLCanvasElement = document.createElement("canvas");
@@ -16,6 +16,10 @@ class CanvasSingleton {
     public static get Instance()
     {
         return this._instance || (this._instance = new this());
+    }
+
+    get Context () {
+        return this.ctx;
     }
 }
 

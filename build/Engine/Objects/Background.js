@@ -1,5 +1,6 @@
 import Entity from "../Base/Entity.js";
 import Star from "./Star.js";
+import Canvas from "../Base/Canvas.js";
 export default class Background extends Entity {
     constructor() {
         super();
@@ -11,7 +12,7 @@ export default class Background extends Entity {
     draw(ctx) {
         ctx.fillStyle = this.color;
         ctx.beginPath();
-        ctx.rect(0, 0, window.canvas.width, window.canvas.height);
+        ctx.rect(0, 0, Canvas.width, Canvas.height);
         ctx.closePath();
         ctx.fill();
         this.stars.forEach((star) => {
