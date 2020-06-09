@@ -1,4 +1,4 @@
-import Game from "./Engine/Game.js";
+import Game from "./Engine/Base/Game.js";
 const canvas = document.getElementById("canvas");
 canvas.height = 800;
 canvas.width = 800;

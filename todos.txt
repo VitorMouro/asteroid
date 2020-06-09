@@ -1,1 +1,1 @@
--> Add enercia to Player movement
+-> Add stars to the background

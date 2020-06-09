@@ -1,4 +1,4 @@
-import Game from "./Engine/Game.js";
+import Game from "./Engine/Base/Game.js";
 
 declare global {
     interface Window {

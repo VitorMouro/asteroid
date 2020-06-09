@@ -6,7 +6,7 @@ export default class Player extends Entity {
     constructor() {
         super();
         this.size = new Vector2(40, 60);
-        this.speed = 0.5;
+        this.speed = 300;
         this.direction = 0;
         this.color = "white";
         this.position.x = 100;
@@ -17,9 +17,9 @@ export default class Player extends Entity {
         this.shape.draw(ctx);
     }
     update(dt) {
-        this.updateDirection();
-        this.position.x += this.direction * Math.cos(this.rotation * Math.PI / 180) * this.speed * dt;
-        this.position.y += this.direction * Math.sin(this.rotation * Math.PI / 180) * this.speed * dt;
+        this.updateDirection(dt);
+        this.position.x += this.direction * Math.cos(this.rotation * Math.PI / 180) * this.speed * dt / 1000;
+        this.position.y += this.direction * Math.sin(this.rotation * Math.PI / 180) * this.speed * dt / 1000;
         if (this.position.y < 0)
             this.position.y = window.Game.canvas.height;
         if (this.position.y > window.Game.canvas.height)
@@ -31,7 +31,7 @@ export default class Player extends Entity {
         this.shape.position = this.position;
         this.shape.rotation = this.rotation;
     }
-    updateDirection() {
+    updateDirection(dt) {
         this.direction = 0;
         if (Input.is_key_pressed("UP")) {
             this.direction += 1;
@@ -40,10 +40,10 @@ export default class Player extends Entity {
             this.direction -= 1;
         }
         if (Input.is_key_pressed("RIGHT")) {
-            this.rotation += 4;
+            this.rotation += 200 * dt / 1000;
         }
         if (Input.is_key_pressed("LEFT")) {
-            this.rotation -= 4;
+            this.rotation -= 200 * dt / 1000;
         }
     }
 }

@@ -1,4 +1,4 @@
-import Vector2 from "./Types/Vector2.js"
+import Vector2 from "../Types/Vector2.js"
 
 export default abstract class Entity {
 

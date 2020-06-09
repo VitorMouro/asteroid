@@ -1,5 +1,6 @@
-import Player from "./Player.js";
+import Player from "../Objects/Player.js";
 import Entity from "./Entity.js";
+import FPS from "../Objects/FPS.js";
 
 export default class Game {
 
@@ -11,7 +12,8 @@ export default class Game {
     constructor(canvas: HTMLCanvasElement){
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d") as CanvasRenderingContext2D;
-        this.entities.push(new Player)
+        this.entities.push(new Player);
+        this.entities.push(new FPS);
         requestAnimationFrame(this.process.bind(this));
     }
 
@@ -32,11 +34,11 @@ export default class Game {
     
     draw(){
         this.entities.forEach((entity) => {
-            entity.draw(this.ctx)
+            entity.draw(this.ctx);
         });
     }
 
-    clear(){
+    clear(){ 
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
