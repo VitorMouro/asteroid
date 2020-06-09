@@ -30,38 +30,38 @@ export default class Player extends Entity {
         ctx.strokeStyle = "green"
         ctx.beginPath();
         ctx.moveTo(this.position.x, this.position.y);
-        ctx.lineTo(this.position.x + this.velocity.x*100, this.position.y + this.velocity.y*100);
+        ctx.lineTo(this.position.x + this.velocity.x * 100, this.position.y + this.velocity.y * 100);
         ctx.closePath();
         ctx.stroke();
     }
 
     update(dt: number) {
-        if(this.position.y < 0)
-        this.position.y = window.Game.canvas.height;
-        if(this.position.y > window.Game.canvas.height)
-        this.position.y = 0;
-        if(this.position.x < 0)
-        this.position.x = window.Game.canvas.width;
-        if(this.position.x > window.Game.canvas.width)
-        this.position.x = 0;
+        if (this.position.y < 0)
+            this.position.y = window.canvas.height;
+        if (this.position.y > window.canvas.height)
+            this.position.y = 0;
+        if (this.position.x < 0)
+            this.position.x = window.canvas.width;
+        if (this.position.x > window.canvas.width)
+            this.position.x = 0;
 
-        if(Input.is_key_pressed("RIGHT")){
-            this.rotation += 180 * dt/1000;
+        if (Input.is_key_pressed("RIGHT")) {
+            this.rotation += 180 * dt / 1000;
         }
-        if(Input.is_key_pressed("LEFT")){
-            this.rotation -= 180 * dt/1000;
+        if (Input.is_key_pressed("LEFT")) {
+            this.rotation -= 180 * dt / 1000;
         }
-        if(Input.is_key_pressed("UP")){
-            this.acceleration.x = Math.cos(this.rotation * Math.PI / 180) * this.thrust * dt/1000;
-            this.acceleration.y = Math.sin(this.rotation * Math.PI / 180) * this.thrust * dt/1000;
-        }else{
+        if (Input.is_key_pressed("UP")) {
+            this.acceleration.x = Math.cos(this.rotation * Math.PI / 180) * this.thrust * dt / 1000;
+            this.acceleration.y = Math.sin(this.rotation * Math.PI / 180) * this.thrust * dt / 1000;
+        } else {
             this.acceleration.reset();
         }
-        
+
         this.velocity.add(this.acceleration)
-        if(this.velocity.magnitude()*1000/dt > this.max_speed){
-                this.velocity.normalize();
-                this.velocity.multiplyScalar(this.max_speed*dt/1000);
+        if (this.velocity.magnitude() * 1000 / dt > this.max_speed) {
+            this.velocity.normalize();
+            this.velocity.multiplyScalar(this.max_speed * dt / 1000);
         }
         this.position.add(this.velocity);
 

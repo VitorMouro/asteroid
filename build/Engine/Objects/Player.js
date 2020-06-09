@@ -28,12 +28,12 @@ export default class Player extends Entity {
     }
     update(dt) {
         if (this.position.y < 0)
-            this.position.y = window.Game.canvas.height;
-        if (this.position.y > window.Game.canvas.height)
+            this.position.y = window.canvas.height;
+        if (this.position.y > window.canvas.height)
             this.position.y = 0;
         if (this.position.x < 0)
-            this.position.x = window.Game.canvas.width;
-        if (this.position.x > window.Game.canvas.width)
+            this.position.x = window.canvas.width;
+        if (this.position.x > window.canvas.width)
             this.position.x = 0;
         if (Input.is_key_pressed("RIGHT")) {
             this.rotation += 180 * dt / 1000;

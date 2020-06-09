@@ -1,6 +1,7 @@
 import Game from "./Engine/Base/Game.js";
-const canvas = document.getElementById("canvas");
+const canvas = document.createElement("canvas");
+document.body.prepend(canvas);
 canvas.height = 800;
 canvas.width = 800;
-const game1 = new Game(canvas);
-window.Game = game1;
+window.canvas = canvas;
+const game = new Game();

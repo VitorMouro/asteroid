@@ -2,13 +2,14 @@ import Game from "./Engine/Base/Game.js";
 
 declare global {
     interface Window {
-        Game: Game
+        canvas: HTMLCanvasElement
     }
 }
 
-const canvas: HTMLCanvasElement = document.getElementById("canvas") as HTMLCanvasElement;
+const canvas: HTMLCanvasElement = document.createElement("canvas");
+document.body.prepend(canvas);
 canvas.height = 800;
 canvas.width = 800;
+window.canvas = canvas
 
-const game1 = new Game(canvas); 
-window.Game = game1;
+const game = new Game(); 
