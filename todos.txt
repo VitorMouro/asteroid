@@ -1,1 +1,1 @@
--> Add stars to the background
+-> Add a Camera feature
