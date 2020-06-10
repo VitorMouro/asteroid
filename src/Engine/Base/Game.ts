@@ -4,8 +4,9 @@ import FPS from "../Objects/FPS.js";
 import Background from "../Objects/Background.js";
 import Canvas from "./Canvas.js";
 
-export default class Game {
+class GameSingleton {
 
+    private static _instance: GameSingleton;
     ctx: CanvasRenderingContext2D
     entities: Array<Entity> = []
     lastTime: number = 0
@@ -45,4 +46,12 @@ export default class Game {
         this.ctx.clearRect(0, 0, Canvas.width, Canvas.height);
     }
 
+    public static get Instance()
+    {
+        return this._instance || (this._instance = new this());
+    }
+
 }
+
+const Game = GameSingleton.Instance;
+export default Game;

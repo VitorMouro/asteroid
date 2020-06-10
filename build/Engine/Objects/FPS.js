@@ -1,13 +1,17 @@
 import Entity from "../Base/Entity.js";
+import Vector2 from "../Types/Vector2.js";
 export default class FPS extends Entity {
     constructor() {
-        super(...arguments);
+        super();
         this.fps = 0;
         this.counter = 0;
+        this.id = "FPS";
+        this.position = new Vector2(5, 20);
+        this.rotation = 0;
     }
     draw(ctx) {
         ctx.font = "20px Consolas";
-        ctx.fillText("FPS: " + this.fps.toFixed(0), 5, 20);
+        ctx.fillText("FPS: " + this.fps.toFixed(0), this.position.x, this.position.y);
     }
     update(dt) {
         if (this.counter > 1000) {

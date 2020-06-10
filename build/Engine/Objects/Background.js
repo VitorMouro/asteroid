@@ -1,12 +1,16 @@
 import Entity from "../Base/Entity.js";
 import Star from "./Star.js";
 import Canvas from "../Base/Canvas.js";
+import Vector2 from "../Types/Vector2.js";
 export default class Background extends Entity {
     constructor() {
         super();
         this.max_stars = 100;
         this.stars = [];
         this.color = "black";
+        this.id = "Back";
+        this.position = new Vector2(0, 0);
+        this.rotation = 0;
         this.generateStars();
     }
     draw(ctx) {
