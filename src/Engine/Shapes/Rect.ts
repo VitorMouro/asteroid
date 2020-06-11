@@ -3,6 +3,9 @@ import Shape from "./Shape.js";
 
 export default class Rect extends Shape{
 
+    position: Vector2;
+    rotation: number;
+    color: string;
     size: Vector2
 
     private p1: Vector2

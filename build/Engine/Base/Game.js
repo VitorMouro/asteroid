@@ -10,6 +10,8 @@ class GameSingleton {
         this.entities.push(new Background);
         this.entities.push(new Player);
         this.entities.push(new FPS);
+    }
+    start() {
         requestAnimationFrame(this.process.bind(this));
     }
     process(timestamp) {

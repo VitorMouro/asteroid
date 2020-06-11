@@ -3,6 +3,9 @@ import Shape from "./Shape.js"
 
 export default class Triangle extends Shape{
 
+    position: Vector2
+    rotation: number
+    color: string
     size: Vector2
     show_normal: boolean = false
 

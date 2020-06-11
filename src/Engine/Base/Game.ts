@@ -1,8 +1,9 @@
 import Player from "../Objects/Player.js";
-import Entity from "./Entity.js";
+import Entity from "../Types/Entity.js";
 import FPS from "../Objects/FPS.js";
 import Background from "../Objects/Background.js";
 import Canvas from "./Canvas.js";
+import Circle from "../Shapes/Circle.js";
 
 class GameSingleton {
 
@@ -17,7 +18,9 @@ class GameSingleton {
         this.entities.push(new Background);
         this.entities.push(new Player);
         this.entities.push(new FPS);
+    }
 
+    start(){
         requestAnimationFrame(this.process.bind(this));
     }
 

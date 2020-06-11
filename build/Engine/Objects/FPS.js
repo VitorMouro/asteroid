@@ -1,4 +1,4 @@
-import Entity from "../Base/Entity.js";
+import Entity from "../Types/Entity.js";
 import Vector2 from "../Types/Vector2.js";
 export default class FPS extends Entity {
     constructor() {

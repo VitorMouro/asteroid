@@ -1,4 +1,4 @@
-import Entity from "../Base/Entity.js"
+import Entity from "../Types/Entity.js"
 import Vector2 from "../Types/Vector2.js";
 import Input from "../Base/Input.js"
 import Triangle from "../Shapes/Triangle.js";

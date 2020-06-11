@@ -7,7 +7,8 @@ class CanvasSingleton {
 
     private constructor() {
         const canvas: HTMLCanvasElement = document.createElement("canvas");
-        document.body.prepend(canvas);
+        const container: HTMLElement = document.getElementById("container") as HTMLElement;
+        container.prepend(canvas);
         canvas.width = this.width;
         canvas.height = this.height;
         this.ctx = canvas.getContext("2d") as CanvasRenderingContext2D;

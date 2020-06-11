@@ -1,2 +1,2 @@
 import Game from "./Engine/Base/Game.js";
-Game;
+Game.start();

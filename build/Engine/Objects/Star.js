@@ -1,6 +1,7 @@
-import Entity from "../Base/Entity.js";
+import Entity from "../Types/Entity.js";
 import Canvas from "../Base/Canvas.js";
 import Vector2 from "../Types/Vector2.js";
+import Circle from "../Shapes/Circle.js";
 export default class Star extends Entity {
     constructor() {
         super();
@@ -10,16 +11,15 @@ export default class Star extends Entity {
         this.radius = Math.floor(Math.random() * Star.max_radius) + 1;
         this.opacity = this.radius / 4;
         this.color = "rgba(255, 255, 255, " + this.opacity + ")";
+        this.shape = new Circle();
+        this.shape.position = this.position;
+        this.shape.radius = this.radius;
     }
     update() {
         return;
     }
     draw(ctx) {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI);
-        ctx.closePath();
-        ctx.fill();
+        this.shape.draw(ctx);
     }
 }
 Star.max_radius = 3;

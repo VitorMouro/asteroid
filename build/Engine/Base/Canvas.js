@@ -3,7 +3,8 @@ class CanvasSingleton {
         this.width = 800;
         this.height = 800;
         const canvas = document.createElement("canvas");
-        document.body.prepend(canvas);
+        const container = document.getElementById("container");
+        container.prepend(canvas);
         canvas.width = this.width;
         canvas.height = this.height;
         this.ctx = canvas.getContext("2d");
