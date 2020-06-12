@@ -37,3 +37,4 @@ export default class Rect extends Shape {
         return newPoint;
     }
 }
+//# sourceMappingURL=Rect.js.map

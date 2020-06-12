@@ -41,3 +41,4 @@ class GameSingleton {
 }
 const Game = GameSingleton.Instance;
 export default Game;
+//# sourceMappingURL=Game.js.map

@@ -76,3 +76,4 @@ export default class Player extends Entity {
         this.shape.rotation = this.rotation;
     }
 }
+//# sourceMappingURL=Player.js.map

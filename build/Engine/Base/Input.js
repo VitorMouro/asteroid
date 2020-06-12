@@ -38,3 +38,4 @@ class InputSingleton {
 }
 const Input = InputSingleton.Instance;
 export default Input;
+//# sourceMappingURL=Input.js.map

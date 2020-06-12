@@ -21,3 +21,4 @@ export default class FPS extends Entity {
         this.counter += dt;
     }
 }
+//# sourceMappingURL=FPS.js.map

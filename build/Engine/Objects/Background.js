@@ -33,3 +33,4 @@ export default class Background extends Entity {
         }
     }
 }
+//# sourceMappingURL=Background.js.map

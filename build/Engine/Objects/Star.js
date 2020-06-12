@@ -23,3 +23,4 @@ export default class Star extends Entity {
     }
 }
 Star.max_radius = 3;
+//# sourceMappingURL=Star.js.map

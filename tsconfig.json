@@ -4,6 +4,7 @@
     "module": "es6",                     
     "outDir": "./build",                 
     "rootDir": "./src",                  
-    "strict": true                       
+    "strict": true,
+    "sourceMap": true                
   }
 }

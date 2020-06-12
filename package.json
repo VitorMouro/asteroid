@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "npx tsc --watch",
-    "build": "rm -rf ./build && npx tsc"
+    
   },
   "author": "",
   "license": "ISC",
