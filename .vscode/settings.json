@@ -1,2 +1,8 @@
 {
+    "liveServer.settings.NoBrowser": true,
+    "liveServer.settings.port": 3000,
+    "liveServer.settings.host": "localhost",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.preferences.importModuleSpecifierEnding": "js"
 }
