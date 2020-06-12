@@ -5,6 +5,7 @@ export default class FPS extends Entity {
         super();
         this.fps = 0;
         this.counter = 0;
+        this.shape = null;
         this.id = "FPS";
         this.position = new Vector2(5, 20);
         this.rotation = 0;

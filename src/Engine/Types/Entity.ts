@@ -1,10 +1,12 @@
 import Vector2 from "./Vector2.js"
+import Shape from "../Shapes/Shape.js"
 
 export default abstract class Entity {
 
     protected abstract id: string
     protected abstract position: Vector2
     protected abstract rotation: number
+    protected abstract shape: Shape | null
 
     constructor(){
     }

@@ -2,6 +2,7 @@ import Entity from "../Types/Entity.js";
 import Star from "./Star.js";
 import Canvas from "../Base/Canvas.js";
 import Vector2 from "../Types/Vector2.js";
+import Rect from "../Shapes/Rect.js";
 export default class Background extends Entity {
     constructor() {
         super();
@@ -11,16 +12,13 @@ export default class Background extends Entity {
         this.id = "Back";
         this.position = new Vector2(0, 0);
         this.rotation = 0;
+        this.shape = new Rect(this.position.x + Canvas.width / 2, this.position.y + Canvas.height / 2, Canvas.width, Canvas.height, 0, this.color);
         this.generateStars();
     }
     draw(ctx) {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.rect(0, 0, Canvas.width, Canvas.height);
-        ctx.closePath();
-        ctx.fill();
-        this.stars.forEach((star) => {
-            star.draw(ctx);
+        this.shape.draw(ctx);
+        this.stars.forEach((start) => {
+            start.draw(ctx);
         });
     }
     update(dt) {

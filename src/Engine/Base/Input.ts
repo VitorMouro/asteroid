@@ -1,9 +1,10 @@
 let Keys: { [key: string]: number; } = {
+    // Adicione pares KEY => KEYCODE abaixo como input
     LEFT: 37,
     UP: 38,
     RIGHT: 39,
-    DOWN: 40
-    // Adicione pares KEY => KEYCODE abaixo como input
+    DOWN: 40,
+    SPACE: 32
 }
 
 class InputSingleton {

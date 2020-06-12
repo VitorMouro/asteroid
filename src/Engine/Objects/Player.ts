@@ -5,6 +5,7 @@ import Triangle from "../Shapes/Triangle.js";
 import Canvas from "../Base/Canvas.js";
 import Background from "./Background.js";
 import Game from "../Base/Game.js";
+import Shot from "./Shot.js";
 
 export default class Player extends Entity {
 
@@ -29,6 +30,10 @@ export default class Player extends Entity {
         this.shape = new Triangle(this.position.x, this.position.y, this.size.x, this.size.y, this.rotation, this.color)
         this.acceleration = new Vector2(0, 0)
         this.velocity = new Vector2(0, 0)
+    }
+
+    shoot(){
+        Game.entities.push(new Shot("", this.position.x, this.position.y, this.rotation));
     }
 
     draw(ctx: CanvasRenderingContext2D) {
@@ -66,11 +71,14 @@ export default class Player extends Entity {
             back.generateStars()
         }
 
-        if (Input.is_key_pressed("RIGHT")) {
-            this.rotation += 180 * dt / 1000;
+        if (Input.is_key_pressed("SPACE")) {
+            this.shoot();
         }
         if (Input.is_key_pressed("LEFT")) {
             this.rotation -= 180 * dt / 1000;
+        }
+        if (Input.is_key_pressed("RIGHT")) {
+            this.rotation += 180 * dt / 1000;
         }
         if (Input.is_key_pressed("UP")) {
             this.acceleration.x = Math.cos(this.rotation * Math.PI / 180) * this.thrust * dt / 1000;

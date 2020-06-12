@@ -1,13 +1,15 @@
 import Entity from "../Types/Entity.js";
 import Vector2 from "../Types/Vector2.js";
+import Shape from "../Shapes/Shape.js"
 
 export default class FPS extends Entity {
-
+    
     id: string
     position: Vector2
     rotation: number
     fps: number = 0
     counter: number = 0
+    shape: null = null
 
     constructor(){
         super();
