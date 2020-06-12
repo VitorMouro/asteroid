@@ -30,3 +30,4 @@ export default class Shot extends Entity {
         this.shape.draw(ctx);
     }
 }
+//# sourceMappingURL=Shot.js.map
