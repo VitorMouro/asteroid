@@ -47,3 +47,4 @@ export default class Triangle extends Shape {
         return newPoint;
     }
 }
+//# sourceMappingURL=Triangle.js.map

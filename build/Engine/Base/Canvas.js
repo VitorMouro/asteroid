@@ -18,3 +18,4 @@ class CanvasSingleton {
 }
 const Canvas = CanvasSingleton.Instance;
 export default Canvas;
+//# sourceMappingURL=Canvas.js.map

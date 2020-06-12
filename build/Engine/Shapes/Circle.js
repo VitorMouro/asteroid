@@ -16,3 +16,4 @@ export default class Circle extends Shape {
         ctx.fill();
     }
 }
+//# sourceMappingURL=Circle.js.map

@@ -167,3 +167,4 @@ export default class Vector2 {
         return [this.x, this.y];
     }
 }
+//# sourceMappingURL=Vector2.js.map

@@ -11,3 +11,4 @@ class CameraSingleton {
 }
 const Camera = CameraSingleton.Instance;
 export default Camera;
+//# sourceMappingURL=Camera.js.map
