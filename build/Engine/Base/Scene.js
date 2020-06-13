@@ -15,7 +15,7 @@ export default class Scene {
     add(entity) {
         this.entities.push(entity);
     }
-    get(id) {
+    find(id) {
         this.entities.forEach((entity) => {
             if (entity.id == id)
                 return entity;

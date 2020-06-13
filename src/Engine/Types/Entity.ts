@@ -3,11 +3,11 @@ import Shape from "../Shapes/Shape.js"
 
 export default abstract class Entity {
 
-    protected abstract id: string
-    protected abstract position: Vector2
-    protected abstract rotation: number
-    protected abstract shape: Shape | null
-    protected abstract color: string | null
+    abstract id: string
+    abstract position: Vector2
+    abstract rotation: number
+    abstract shape: Shape | null
+    abstract color: string | null
 
     constructor(){
     }

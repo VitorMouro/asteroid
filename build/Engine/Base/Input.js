@@ -24,7 +24,6 @@ class InputSingleton {
         for (let key in Keys) {
             if (event.key == Keys[key]) {
                 this.pressedKeys[Keys[key]] = true;
-                console.log("Pressed " + Keys[key]);
                 event.preventDefault();
             }
         }
@@ -33,7 +32,6 @@ class InputSingleton {
         for (let key in Keys) {
             if (event.key == Keys[key]) {
                 this.pressedKeys[Keys[key]] = false;
-                console.log("Released " + Keys[key]);
                 event.preventDefault();
             }
         }

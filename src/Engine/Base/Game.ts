@@ -4,6 +4,7 @@ import FPS from "../Objects/FPS.js";
 import Background from "../Objects/Background.js";
 import Canvas from "./Canvas.js";
 import Circle from "../Shapes/Circle.js";
+import Scene from "./Scene.js";
 
 class GameSingleton {
 
@@ -11,13 +12,14 @@ class GameSingleton {
     ctx: CanvasRenderingContext2D
     entities: Array<Entity> = []
     lastTime: number = 0
+    activeScene: Scene
 
     constructor(){
         this.ctx = Canvas.Context;
-
-        this.entities.push(new Background);
-        this.entities.push(new Player);
-        this.entities.push(new FPS);
+        this.activeScene = new Scene;
+        this.activeScene.add(new Background)
+        this.activeScene.add(new Player)
+        this.activeScene.add(new FPS)
     }
 
     start(){
@@ -25,24 +27,20 @@ class GameSingleton {
     }
 
     process(timestamp: number){
-        const dt = timestamp - this.lastTime;
+        let dt = timestamp - this.lastTime;
         this.lastTime = timestamp;
         this.update(dt);
         this.clear();
-        this.draw();
+        this.draw(this.ctx);
         requestAnimationFrame(this.process.bind(this))
     }
 
-    update(delta: number){
-        this.entities.forEach((entity) => {
-            entity.update(delta);
-        });
+    update(dt: number){
+        this.activeScene.update(dt)
     }
     
-    draw(){
-        this.entities.forEach((entity) => {
-            entity.draw(this.ctx);
-        });
+    draw(ctx: CanvasRenderingContext2D){
+        this.activeScene.draw(ctx)
     }
 
     clear(){ 

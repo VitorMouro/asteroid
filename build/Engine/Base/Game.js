@@ -2,35 +2,33 @@ import Player from "../Objects/Player.js";
 import FPS from "../Objects/FPS.js";
 import Background from "../Objects/Background.js";
 import Canvas from "./Canvas.js";
+import Scene from "./Scene.js";
 class GameSingleton {
     constructor() {
         this.entities = [];
         this.lastTime = 0;
         this.ctx = Canvas.Context;
-        this.entities.push(new Background);
-        this.entities.push(new Player);
-        this.entities.push(new FPS);
+        this.activeScene = new Scene;
+        this.activeScene.add(new Background);
+        this.activeScene.add(new Player);
+        this.activeScene.add(new FPS);
     }
     start() {
         requestAnimationFrame(this.process.bind(this));
     }
     process(timestamp) {
-        const dt = timestamp - this.lastTime;
+        let dt = timestamp - this.lastTime;
         this.lastTime = timestamp;
         this.update(dt);
         this.clear();
-        this.draw();
+        this.draw(this.ctx);
         requestAnimationFrame(this.process.bind(this));
     }
-    update(delta) {
-        this.entities.forEach((entity) => {
-            entity.update(delta);
-        });
+    update(dt) {
+        this.activeScene.update(dt);
     }
-    draw() {
-        this.entities.forEach((entity) => {
-            entity.draw(this.ctx);
-        });
+    draw(ctx) {
+        this.activeScene.draw(ctx);
     }
     clear() {
         this.ctx.clearRect(0, 0, Canvas.width, Canvas.height);

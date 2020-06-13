@@ -21,19 +21,21 @@ export default class Player extends Entity {
     acceleration: Vector2
     max_speed: number = 400
     draw_velocity: boolean = false
+    shoot_delay = 1
+
 
     constructor() {
         super();
         this.id = "Player"
-        this.rotation = 0
-        this.position = new Vector2(200, 200);
+        this.rotation = -90
+        this.position = new Vector2(Canvas.width/2, Canvas.height/2);
         this.shape = new Triangle(this.position.x, this.position.y, this.size.x, this.size.y, this.rotation, this.color)
         this.acceleration = new Vector2(0, 0)
         this.velocity = new Vector2(0, 0)
     }
 
     shoot(){
-        Game.entities.push(new Shot("", this.position.x, this.position.y, this.rotation));
+        Game.entities.push(new Shot((Math.random()*999).toString(), this.position.x, this.position.y, this.rotation));
     }
 
     draw(ctx: CanvasRenderingContext2D) {
@@ -52,27 +54,30 @@ export default class Player extends Entity {
     update(dt: number) {
         if (this.position.y < 0){
             this.position.y = Canvas.height;
-            const back = Game.entities[0] as Background;
+            let back = Game.activeScene.find("background") as Background;
             back.generateStars()
         }
         if (this.position.y > Canvas.height){
             this.position.y = 0;
-            const back = Game.entities[0] as Background;
+            let back = Game.activeScene.find("background") as Background;
             back.generateStars()
         }
         if (this.position.x < 0){
             this.position.x = Canvas.width;
-            const back = Game.entities[0] as Background;
+            let back = Game.activeScene.find("background") as Background;
             back.generateStars()
         }
         if (this.position.x > Canvas.width){
             this.position.x = 0;
-            const back = Game.entities[0] as Background;
+            let back = Game.activeScene.find("background") as Background;
             back.generateStars()
         }
 
-        if (Input.is_key_pressed(" ")) {
+        if (Input.is_key_pressed(" ") && this.shoot_delay < 0) {
             this.shoot();
+            this.shoot_delay = 1
+        }else{
+            this.shoot_delay -= dt/1000;
         }
         if (Input.is_key_pressed("ArrowLeft")) {
             this.rotation -= 180 * dt / 1000;

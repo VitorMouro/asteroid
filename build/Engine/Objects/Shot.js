@@ -6,7 +6,7 @@ export default class Shot extends Entity {
     constructor(id, x, y, r) {
         super();
         this.velocity = new Vector2(0, 0);
-        this.thrust = 100;
+        this.thrust = 200;
         this.radius = 5;
         this.color = "white";
         this.id = id;
@@ -19,14 +19,8 @@ export default class Shot extends Entity {
         this.velocity.y = Math.sin(this.rotation * Math.PI / 180) * this.thrust * dt / 1000;
         this.position.add(this.velocity);
         this.shape.position = this.position;
-        if (this.position.y < 0)
-            this.position.y = Canvas.height;
-        if (this.position.y > Canvas.height)
-            this.position.y = 0;
-        if (this.position.x < 0)
-            this.position.x = Canvas.width;
-        if (this.position.x > Canvas.width)
-            this.position.x = 0;
+        if (this.position.y < 0 || this.position.y > Canvas.height || this.position.x < 0 || this.position.x > Canvas.width)
+            return;
     }
     draw(ctx) {
         this.shape.draw(ctx);

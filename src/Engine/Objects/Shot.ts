@@ -10,7 +10,7 @@ export default class Shot extends Entity {
     rotation: number
     shape: Circle
     velocity: Vector2 = new Vector2(0, 0)
-    thrust: number = 100
+    thrust: number = 200
     radius: number = 5
     color: string = "white"
     
@@ -28,14 +28,8 @@ export default class Shot extends Entity {
         this.position.add(this.velocity);
         this.shape.position = this.position;
 
-        if (this.position.y < 0)
-            this.position.y = Canvas.height;
-        if (this.position.y > Canvas.height)
-            this.position.y = 0;
-        if (this.position.x < 0)
-            this.position.x = Canvas.width;
-        if (this.position.x > Canvas.width)
-            this.position.x = 0;
+        if (this.position.y < 0 || this.position.y > Canvas.height || this.position.x < 0 || this.position.x > Canvas.width)
+            return;
     }
     
     draw(ctx: CanvasRenderingContext2D): void {
