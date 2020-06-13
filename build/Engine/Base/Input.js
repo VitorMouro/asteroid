@@ -1,39 +1,42 @@
-let Keys = {
-    // Adicione pares KEY => KEYCODE abaixo como input
-    LEFT: 37,
-    UP: 38,
-    RIGHT: 39,
-    DOWN: 40,
-    SPACE: 32
-};
+var Keys;
+(function (Keys) {
+    Keys[Keys["ArrowLeft"] = 0] = "ArrowLeft";
+    Keys[Keys["ArrowUp"] = 1] = "ArrowUp";
+    Keys[Keys["ArrowRight"] = 2] = "ArrowRight";
+    Keys[Keys["ArrowDown"] = 3] = "ArrowDown";
+    Keys[Keys[" "] = 4] = " ";
+})(Keys || (Keys = {}));
 class InputSingleton {
     constructor() {
-        this.pressed = {};
+        this.pressedKeys = {};
         document.addEventListener("keydown", this.handleKeyDown.bind(this));
         document.addEventListener("keyup", this.handleKeyUp.bind(this));
         for (let key in Keys) {
-            this.pressed[key] = false;
+            this.pressedKeys[Keys[key]] = false;
         }
     }
     is_key_pressed(key) {
-        return this.pressed[key];
+        return this.pressedKeys[key];
     }
     handleKeyDown(event) {
+        if (event.repeat)
+            return;
         for (let key in Keys) {
-            if (event.keyCode == Keys[key]) {
-                this.pressed[key] = true;
+            if (event.key == Keys[key]) {
+                this.pressedKeys[Keys[key]] = true;
+                console.log("Pressed " + Keys[key]);
             }
         }
     }
     handleKeyUp(event) {
         for (let key in Keys) {
-            if (event.keyCode == Keys[key]) {
-                this.pressed[key] = false;
+            if (event.key == Keys[key]) {
+                this.pressedKeys[Keys[key]] = false;
+                console.log("Released " + Keys[key]);
             }
         }
     }
     static get Instance() {
-        // Do you need arguments? Make it a regular static method instead.
         return this._instance || (this._instance = new this());
     }
 }

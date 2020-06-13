@@ -1,48 +1,51 @@
-let Keys: { [key: string]: number; } = {
-    // Adicione pares KEY => KEYCODE abaixo como input
-    LEFT: 37,
-    UP: 38,
-    RIGHT: 39,
-    DOWN: 40,
-    SPACE: 32
+enum Keys{
+    "ArrowLeft",
+    "ArrowUp",
+    "ArrowRight",
+    "ArrowDown",
+    " "
 }
 
 class InputSingleton {
 
-    private pressed: { [key: string]: boolean; } = {}
+    
+    private pressedKeys: { [key: string]: boolean; } = {}
     private static _instance: InputSingleton;
 
     private constructor() {
         document.addEventListener("keydown", this.handleKeyDown.bind(this))
         document.addEventListener("keyup", this.handleKeyUp.bind(this))
         for (let key in Keys){
-            this.pressed[key] = false;
+            this.pressedKeys[Keys[key]] = false;
         }
     }
 
     public is_key_pressed(key: string) {
-        return this.pressed[key]
+        return this.pressedKeys[key]
     }
 
     private handleKeyDown(event: KeyboardEvent) {
+        if(event.repeat)
+            return;
         for (let key in Keys){
-            if(event.keyCode == Keys[key]){
-                this.pressed[key] = true;
+            if(event.key == Keys[key]){
+                this.pressedKeys[Keys[key]] = true;
+                console.log("Pressed " + Keys[key])
             }
         }
     }
 
     private handleKeyUp(event: KeyboardEvent){
         for (let key in Keys){
-            if(event.keyCode == Keys[key]){
-                this.pressed[key] = false;
+            if(event.key == Keys[key]){
+                this.pressedKeys[Keys[key]] = false;
+                console.log("Released " + Keys[key])
             }
         }
     }
 
     public static get Instance()
     {
-        // Do you need arguments? Make it a regular static method instead.
         return this._instance || (this._instance = new this());
     }
 }

@@ -11,3 +11,4 @@ Asteroid Clone made with Typescript
 ### known bugs
 
 -> The velocity vector has diferent sizes depending on the fps
+-> The input is inconsistent sometimes

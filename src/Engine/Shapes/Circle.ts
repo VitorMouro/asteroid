@@ -8,12 +8,12 @@ export default class Circle extends Shape {
     color: string;
     radius: number
 
-    constructor(){
+    constructor(x: number, y: number, radius: number, rotation: number, color: string){
         super();
-        this.position = new Vector2(0, 0);
-        this.rotation = 0;
-        this.color = "white";
-        this.radius = 5;
+        this.position = new Vector2(x, y);
+        this.rotation = rotation;
+        this.color = color;
+        this.radius = radius;
     }
 
     draw(ctx: CanvasRenderingContext2D): void {

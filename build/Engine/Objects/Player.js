@@ -57,16 +57,16 @@ export default class Player extends Entity {
             const back = Game.entities[0];
             back.generateStars();
         }
-        if (Input.is_key_pressed("SPACE")) {
+        if (Input.is_key_pressed(" ")) {
             this.shoot();
         }
-        if (Input.is_key_pressed("LEFT")) {
+        if (Input.is_key_pressed("ArrowLeft")) {
             this.rotation -= 180 * dt / 1000;
         }
-        if (Input.is_key_pressed("RIGHT")) {
+        if (Input.is_key_pressed("ArrowRight")) {
             this.rotation += 180 * dt / 1000;
         }
-        if (Input.is_key_pressed("UP")) {
+        if (Input.is_key_pressed("ArrowUp")) {
             this.acceleration.x = Math.cos(this.rotation * Math.PI / 180) * this.thrust * dt / 1000;
             this.acceleration.y = Math.sin(this.rotation * Math.PI / 180) * this.thrust * dt / 1000;
         }

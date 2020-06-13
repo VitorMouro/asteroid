@@ -11,13 +11,15 @@ export default class Shot extends Entity {
     shape: Circle
     velocity: Vector2 = new Vector2(0, 0)
     thrust: number = 100
+    radius: number = 5
+    color: string = "white"
     
     constructor(id: string, x: number, y: number, r: number){
         super();
         this.id = id;
         this.position = new Vector2(x, y);
         this.rotation = r;
-        this.shape = new Circle;
+        this.shape = new Circle(this.position.x, this.position.y, this.radius, this.rotation, this.color);
     }
 
     update(dt: number): void {

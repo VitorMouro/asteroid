@@ -9,7 +9,8 @@ export default class FPS extends Entity {
     rotation: number
     fps: number = 0
     counter: number = 0
-    shape: null = null
+    shape = null
+    color = null
 
     constructor(){
         super();

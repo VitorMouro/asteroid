@@ -7,10 +7,12 @@ export default class Shot extends Entity {
         super();
         this.velocity = new Vector2(0, 0);
         this.thrust = 100;
+        this.radius = 5;
+        this.color = "white";
         this.id = id;
         this.position = new Vector2(x, y);
         this.rotation = r;
-        this.shape = new Circle;
+        this.shape = new Circle(this.position.x, this.position.y, this.radius, this.rotation, this.color);
     }
     update(dt) {
         this.velocity.x = Math.cos(this.rotation * Math.PI / 180) * this.thrust * dt / 1000;

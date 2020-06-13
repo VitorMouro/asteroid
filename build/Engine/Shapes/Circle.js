@@ -1,12 +1,12 @@
 import Shape from "./Shape.js";
 import Vector2 from "../Types/Vector2.js";
 export default class Circle extends Shape {
-    constructor() {
+    constructor(x, y, radius, rotation, color) {
         super();
-        this.position = new Vector2(0, 0);
-        this.rotation = 0;
-        this.color = "white";
-        this.radius = 5;
+        this.position = new Vector2(x, y);
+        this.rotation = rotation;
+        this.color = color;
+        this.radius = radius;
     }
     draw(ctx) {
         ctx.fillStyle = this.color;

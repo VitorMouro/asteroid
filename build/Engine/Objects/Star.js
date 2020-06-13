@@ -11,7 +11,7 @@ export default class Star extends Entity {
         this.radius = Math.floor(Math.random() * Star.max_radius) + 1;
         this.opacity = this.radius / 4;
         this.color = "rgba(255, 255, 255, " + this.opacity + ")";
-        this.shape = new Circle();
+        this.shape = new Circle(this.position.x, this.position.y, this.radius, this.rotation, this.color);
         this.shape.position = this.position;
         this.shape.radius = this.radius;
     }

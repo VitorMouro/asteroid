@@ -7,6 +7,7 @@ export default abstract class Entity {
     protected abstract position: Vector2
     protected abstract rotation: number
     protected abstract shape: Shape | null
+    protected abstract color: string | null
 
     constructor(){
     }
