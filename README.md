@@ -8,7 +8,7 @@ Asteroid Clone made with Typescript
 -> Add Scenes
 -> Add collision
 
-### known bugs
+## known bugs
 
--> The velocity vector has diferent sizes depending on the fps
+-> The velocity vector has diferent size depending on the fps
 -> The input is inconsistent sometimes
