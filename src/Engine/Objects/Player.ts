@@ -21,7 +21,7 @@ export default class Player extends Entity {
     acceleration: Vector2
     max_speed: number = 400
     draw_velocity: boolean = false
-    shoot_delay = 1
+    shoot_delay = 0.2
 
 
     constructor() {
@@ -35,7 +35,7 @@ export default class Player extends Entity {
     }
 
     shoot(){
-        Game.entities.push(new Shot((Math.random()*999).toString(), this.position.x, this.position.y, this.rotation));
+        Game.activeScene.add(new Shot((Math.random()*999).toString(), this.position.x, this.position.y, this.rotation));
     }
 
     draw(ctx: CanvasRenderingContext2D) {
@@ -54,28 +54,20 @@ export default class Player extends Entity {
     update(dt: number) {
         if (this.position.y < 0){
             this.position.y = Canvas.height;
-            let back = Game.activeScene.find("background") as Background;
-            back.generateStars()
         }
         if (this.position.y > Canvas.height){
             this.position.y = 0;
-            let back = Game.activeScene.find("background") as Background;
-            back.generateStars()
         }
         if (this.position.x < 0){
             this.position.x = Canvas.width;
-            let back = Game.activeScene.find("background") as Background;
-            back.generateStars()
         }
         if (this.position.x > Canvas.width){
             this.position.x = 0;
-            let back = Game.activeScene.find("background") as Background;
-            back.generateStars()
         }
 
         if (Input.is_key_pressed(" ") && this.shoot_delay < 0) {
             this.shoot();
-            this.shoot_delay = 1
+            this.shoot_delay = 0.2
         }else{
             this.shoot_delay -= dt/1000;
         }

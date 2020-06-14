@@ -2,6 +2,10 @@
 
 Asteroid Clone made with Typescript
 
+## refactoring
+
+-> Refactory code to allow more than one game instance
+
 ## todos
 
 -> Add a Camera feature

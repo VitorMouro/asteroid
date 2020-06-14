@@ -3,15 +3,16 @@ import FPS from "../Objects/FPS.js";
 import Background from "../Objects/Background.js";
 import Canvas from "./Canvas.js";
 import Scene from "./Scene.js";
+import Empty from "../Objects/Empty.js";
 class GameSingleton {
     constructor() {
-        this.entities = [];
         this.lastTime = 0;
         this.ctx = Canvas.Context;
         this.activeScene = new Scene;
         this.activeScene.add(new Background);
         this.activeScene.add(new Player);
         this.activeScene.add(new FPS);
+        this.activeScene.add(new Empty);
     }
     start() {
         requestAnimationFrame(this.process.bind(this));

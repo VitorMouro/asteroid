@@ -16,11 +16,16 @@ export default class Scene {
         this.entities.push(entity);
     }
     find(id) {
-        this.entities.forEach((entity) => {
-            if (entity.id == id)
-                return entity;
-        });
+        for (let i in this.entities) {
+            if (this.entities[i].id == id)
+                return this.entities[i];
+        }
         return null;
+    }
+    remove(id) {
+        this.entities = this.entities.filter((entity, index) => {
+            return entity.id != id;
+        });
     }
 }
 //# sourceMappingURL=Scene.js.map

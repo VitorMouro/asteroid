@@ -5,21 +5,23 @@ import Background from "../Objects/Background.js";
 import Canvas from "./Canvas.js";
 import Circle from "../Shapes/Circle.js";
 import Scene from "./Scene.js";
+import Asteroid from "../Objects/Asteroid.js";
+import Empty from "../Objects/Empty.js";
 
 class GameSingleton {
 
     private static _instance: GameSingleton;
     ctx: CanvasRenderingContext2D
-    entities: Array<Entity> = []
     lastTime: number = 0
     activeScene: Scene
 
     constructor(){
-        this.ctx = Canvas.Context;
+        this.ctx = Canvas.Context
         this.activeScene = new Scene;
         this.activeScene.add(new Background)
         this.activeScene.add(new Player)
         this.activeScene.add(new FPS)
+        this.activeScene.add(new Empty)
     }
 
     start(){

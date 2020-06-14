@@ -10,7 +10,7 @@ export default class FPS extends Entity {
     fps: number = 0
     counter: number = 0
     shape = null
-    color = null
+    color = "white"
 
     constructor(){
         super();
@@ -20,6 +20,7 @@ export default class FPS extends Entity {
     }
 
     draw(ctx: CanvasRenderingContext2D){
+        ctx.fillStyle = this.color
         ctx.font = "20px Consolas";
         ctx.fillText("FPS: " + this.fps.toFixed(0), this.position.x, this.position.y);
     }

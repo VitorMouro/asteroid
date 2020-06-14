@@ -14,7 +14,7 @@ export default class Player extends Entity {
         this.color = "white";
         this.max_speed = 400;
         this.draw_velocity = false;
-        this.shoot_delay = 1;
+        this.shoot_delay = 0.2;
         this.id = "Player";
         this.rotation = -90;
         this.position = new Vector2(Canvas.width / 2, Canvas.height / 2);
@@ -23,7 +23,7 @@ export default class Player extends Entity {
         this.velocity = new Vector2(0, 0);
     }
     shoot() {
-        Game.entities.push(new Shot((Math.random() * 999).toString(), this.position.x, this.position.y, this.rotation));
+        Game.activeScene.add(new Shot((Math.random() * 999).toString(), this.position.x, this.position.y, this.rotation));
     }
     draw(ctx) {
         this.shape.draw(ctx);
@@ -40,27 +40,19 @@ export default class Player extends Entity {
     update(dt) {
         if (this.position.y < 0) {
             this.position.y = Canvas.height;
-            let back = Game.activeScene.find("background");
-            back.generateStars();
         }
         if (this.position.y > Canvas.height) {
             this.position.y = 0;
-            let back = Game.activeScene.find("background");
-            back.generateStars();
         }
         if (this.position.x < 0) {
             this.position.x = Canvas.width;
-            let back = Game.activeScene.find("background");
-            back.generateStars();
         }
         if (this.position.x > Canvas.width) {
             this.position.x = 0;
-            let back = Game.activeScene.find("background");
-            back.generateStars();
         }
         if (Input.is_key_pressed(" ") && this.shoot_delay < 0) {
             this.shoot();
-            this.shoot_delay = 1;
+            this.shoot_delay = 0.2;
         }
         else {
             this.shoot_delay -= dt / 1000;
