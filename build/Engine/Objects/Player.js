@@ -13,7 +13,7 @@ export default class Player extends Entity {
         this.direction = 0;
         this.color = "white";
         this.max_speed = 400;
-        this.draw_velocity = false;
+        this.draw_velocity = true;
         this.shoot_delay = 0.2;
         this.id = "Player";
         this.rotation = -90;

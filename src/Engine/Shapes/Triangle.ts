@@ -7,7 +7,7 @@ export default class Triangle extends Shape{
     rotation: number
     color: string
     size: Vector2
-    show_normal: boolean = false
+    show_normal: boolean = true
 
     private p1: Vector2 = new Vector2(0, 0)
     private p2: Vector2 = new Vector2(0, 0)

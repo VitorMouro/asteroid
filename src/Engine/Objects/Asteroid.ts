@@ -13,15 +13,18 @@ export default class Asteroid extends Entity {
     shape: Circle;
     color: string | null;
     velocity: Vector2 = new Vector2(0, 0)
-    thrust: number = 200
+    thrust: number
+    radius: number
 
-    constructor(id: string, x: number, y: number, rotation: number, color: string){
+    constructor(id: string, x: number, y: number, rotation: number, radius: number,  color: string){
         super();
         this.id = id
         this.position = new Vector2(x, y)
         this.rotation = rotation
         this.color = color
-        this.shape = new Circle(this.position.x, this.position.y, Math.random()*70+30, this.rotation, "white")
+        this.radius =  radius
+        this.thrust = 8000/radius
+        this.shape = new Circle(this.position.x, this.position.y, this.radius, this.rotation, "white")
     }
 
     update(dt: number): void {
@@ -30,9 +33,8 @@ export default class Asteroid extends Entity {
         this.position.add(this.velocity);
         this.shape.position = this.position;
 
-        if (this.position.y < 0 || this.position.y > Canvas.height || this.position.x < 0 || this.position.x > Canvas.width)
-            // Game.activeScene.remove(this.id);
-            return
+        if (this.position.y < 0-this.radius || this.position.y > Canvas.height+this.radius || this.position.x < 0-this.radius || this.position.x > Canvas.width+this.radius)
+            Game.activeScene.remove(this.id);
 
     }
 

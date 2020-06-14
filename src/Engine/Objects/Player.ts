@@ -20,7 +20,7 @@ export default class Player extends Entity {
     velocity: Vector2
     acceleration: Vector2
     max_speed: number = 400
-    draw_velocity: boolean = false
+    draw_velocity: boolean = true
     shoot_delay = 0.2
 
 

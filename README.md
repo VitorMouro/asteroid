@@ -8,9 +8,14 @@ Asteroid Clone made with Typescript
 
 ## todos
 
+### primary
+
+-> Asteroids hava to spawn moving into the screen
+-> Add collision signals
+
+### secondary 
+
 -> Add a Camera feature
--> Add Scenes
--> Add collision
 
 ## known bugs
 

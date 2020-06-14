@@ -3,7 +3,7 @@ import Shape from "./Shape.js";
 export default class Triangle extends Shape {
     constructor(x, y, w, h, r, color) {
         super();
-        this.show_normal = false;
+        this.show_normal = true;
         this.p1 = new Vector2(0, 0);
         this.p2 = new Vector2(0, 0);
         this.p3 = new Vector2(0, 0);
