@@ -1,9 +1,9 @@
-import Entity from "../Types/Entity.js";
-import Vector2 from "../Types/Vector2.js";
-import Shape from "../Shapes/Shape.js";
-import Circle from "../Shapes/Circle.js";
-import Canvas from "../Base/Canvas.js";
-import Game from "../Base/Game.js";
+import Entity from "../../Engine/Types/Entity.js";
+import Vector2 from "../../Engine/Types/Vector2.js";
+import Shape from "../../Engine/Shapes/Shape.js";
+import Circle from "../../Engine/Shapes/Circle.js";
+import Canvas from "../../Engine/Base/Canvas.js";
+import Game from "../../Engine/Base/Game.js";
 
 export default class Asteroid extends Entity {
 

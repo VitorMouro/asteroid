@@ -1,9 +1,9 @@
-import Entity from "../Types/Entity.js";
-import Vector2 from "../Types/Vector2.js";
-import Shape from "../Shapes/Shape.js";
-import Game from "../Base/Game.js";
+import Entity from "../../Engine/Types/Entity.js";
+import Vector2 from "../../Engine/Types/Vector2.js";
+import Shape from "../../Engine/Shapes/Shape.js";
+import Game from "../../Engine/Base/Game.js";
 import Asteroid from "./Asteroid.js";
-import Canvas from "../Base/Canvas.js";
+import Canvas from "../../Engine/Base/Canvas.js";
 import Player from "./Player.js";
 
 export default class Empty extends Entity{

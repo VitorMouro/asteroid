@@ -1,7 +1,7 @@
-import Entity from "../Types/Entity.js";
-import Canvas from "../Base/Canvas.js"
-import Vector2 from "../Types/Vector2.js";
-import Circle from "../Shapes/Circle.js";
+import Entity from "../../Engine/Types/Entity.js";
+import Canvas from "../../Engine/Base/Canvas.js"
+import Vector2 from "../../Engine/Types/Vector2.js";
+import Circle from "../../Engine/Shapes/Circle.js";
 
 export default class Star extends Entity {
 

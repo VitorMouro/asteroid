@@ -1,10 +1,10 @@
-import Entity from "../Types/Entity.js"
-import Vector2 from "../Types/Vector2.js";
-import Input from "../Base/Input.js"
-import Triangle from "../Shapes/Triangle.js";
-import Canvas from "../Base/Canvas.js";
+import Entity from "../../Engine/Types/Entity.js"
+import Vector2 from "../../Engine/Types/Vector2.js";
+import Input from "../../Engine/Base/Input.js"
+import Triangle from "../../Engine/Shapes/Triangle.js";
+import Canvas from "../../Engine/Base/Canvas.js";
 import Background from "./Background.js";
-import Game from "../Base/Game.js";
+import Game from "../../Engine/Base/Game.js";
 import Shot from "./Shot.js";
 
 export default class Player extends Entity {

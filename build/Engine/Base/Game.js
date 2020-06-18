@@ -1,9 +1,9 @@
-import Player from "../Objects/Player.js";
-import FPS from "../Objects/FPS.js";
-import Background from "../Objects/Background.js";
+import Player from "../../Game/Objects/Player.js";
+import FPS from "../../Game/Objects/FPS.js";
+import Background from "../../Game/Objects/Background.js";
 import Canvas from "./Canvas.js";
 import Scene from "./Scene.js";
-import Empty from "../Objects/Empty.js";
+import Empty from "../../Game/Objects/Empty.js";
 class GameSingleton {
     constructor() {
         this.lastTime = 0;

@@ -1,6 +1,6 @@
-import Entity from "../Types/Entity.js";
-import Vector2 from "../Types/Vector2.js";
-import Shape from "../Shapes/Shape.js"
+import Entity from "../../Engine/Types/Entity.js";
+import Vector2 from "../../Engine/Types/Vector2.js";
+import Shape from "../../Engine/Shapes/Shape.js"
 
 export default class FPS extends Entity {
     

@@ -1,8 +1,8 @@
-import Entity from "../Types/Entity.js"
+import Entity from "../../Engine/Types/Entity.js"
 import Star from "./Star.js";
-import Canvas from "../Base/Canvas.js";
-import Vector2 from "../Types/Vector2.js";
-import Rect from "../Shapes/Rect.js";
+import Canvas from "../../Engine/Base/Canvas.js";
+import Vector2 from "../../Engine/Types/Vector2.js";
+import Rect from "../../Engine/Shapes/Rect.js";
 
 export default class Background extends Entity {
 
